@@ -178,7 +178,11 @@
   .acquisition-page {
     display: grid;
     gap: 14px;
-    padding: 18px 16px 72px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 18px 12px 72px;
+    overflow-x: clip;
     background: #f6f7f9;
     color: #111827;
   }
@@ -187,11 +191,19 @@
     display: grid;
     gap: 24px;
     width: min(100%, 1120px);
+    max-width: 100%;
+    min-width: 0;
     margin: 0 auto;
-    padding: 28px;
+    padding: 24px;
+    overflow: hidden;
     border: 1px solid #e6e8ec;
-    border-radius: 30px;
+    border-radius: 28px;
     background: #ffffff;
+  }
+
+  .acquisition-section > * {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .acquisition-section--intro {
@@ -202,6 +214,8 @@
     display: grid;
     gap: 14px;
     align-content: center;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .acquisition-kicker {
@@ -211,16 +225,18 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-copy h2 {
     max-width: 680px;
     margin: 0;
     color: #111827;
-    font-size: clamp(2rem, 7vw, 4.2rem);
+    font-size: clamp(1.9rem, 7vw, 4.2rem);
     font-weight: 560;
-    line-height: 0.98;
-    letter-spacing: -0.065em;
+    line-height: 1;
+    letter-spacing: -0.055em;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-copy p {
@@ -229,11 +245,13 @@
     color: #5b6472;
     font-size: 1.02rem;
     line-height: 1.55;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-list {
     display: grid;
     gap: 10px;
+    min-width: 0;
     margin: 6px 0 0;
     padding: 0;
     list-style: none;
@@ -241,9 +259,11 @@
 
   .acquisition-list li {
     position: relative;
+    min-width: 0;
     padding-left: 24px;
     color: #384152;
     line-height: 1.45;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-list li::before {
@@ -258,7 +278,17 @@
   }
 
   .acquisition-form {
+    min-width: 0;
+    max-width: 100%;
     margin-top: 0;
+  }
+
+  .acquisition-form label,
+  .acquisition-form input,
+  .acquisition-form select,
+  .acquisition-form button {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .acquisition-form input,
@@ -269,10 +299,19 @@
 
   .acquisition-form button {
     background: #111827;
+    white-space: normal;
   }
 
   .acquisition-link-row {
+    min-width: 0;
     margin: 0;
+  }
+
+  .acquisition-link-row .primary-link {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
   }
 
   @media (min-width: 860px) {
@@ -283,12 +322,13 @@
 
     .acquisition-section {
       padding: 42px;
+      border-radius: 30px;
     }
 
     .acquisition-section--intro,
     .acquisition-section--split,
     .acquisition-section--closing {
-      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1fr);
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
       align-items: center;
     }
 
@@ -297,8 +337,12 @@
     }
 
     .acquisition-section--media-first {
-      grid-template-columns: minmax(0, 0.78fr) minmax(380px, 1.1fr);
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.1fr);
       align-items: center;
+    }
+
+    .acquisition-link-row .primary-link {
+      width: auto;
     }
   }
 </style>
