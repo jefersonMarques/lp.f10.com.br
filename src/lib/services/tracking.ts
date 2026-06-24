@@ -28,6 +28,17 @@ const injectScript = (id: string, source: string) => {
   document.head.appendChild(script);
 };
 
+const injectInlineScript = (id: string, code: string) => {
+  if (!browser || document.getElementById(id)) {
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.id = id;
+  script.textContent = code;
+  document.head.appendChild(script);
+};
+
 const initializeGoogle = (trackingWindow: TrackingWindow) => {
   const gtmId = getPublicEnv('PUBLIC_GTM_ID');
   const gaId = getPublicEnv('PUBLIC_GA_ID');
@@ -54,13 +65,12 @@ const initializeMeta = (trackingWindow: TrackingWindow) => {
     return;
   }
 
-  trackingWindow.fbq = trackingWindow.fbq ?? ((...args: unknown[]) => {
-    trackingWindow.dataLayer = trackingWindow.dataLayer ?? [];
-    trackingWindow.dataLayer.push({ event: 'meta_pixel_queue', args });
-  });
+  injectInlineScript(
+    'f10-meta-pixel-bootstrap',
+    "!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');"
+  );
 
-  injectScript('f10-meta-pixel', 'https://connect.facebook.net/en_US/fbevents.js');
-  trackingWindow.fbq('init', pixelId);
+  trackingWindow.fbq?.('init', pixelId);
 };
 
 const initializeLinkedIn = (trackingWindow: TrackingWindow) => {
@@ -82,13 +92,12 @@ const initializeX = (trackingWindow: TrackingWindow) => {
     return;
   }
 
-  trackingWindow.twq = trackingWindow.twq ?? ((...args: unknown[]) => {
-    trackingWindow.dataLayer = trackingWindow.dataLayer ?? [];
-    trackingWindow.dataLayer.push({ event: 'x_pixel_queue', args });
-  });
+  injectInlineScript(
+    'f10-x-pixel-bootstrap',
+    "!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments)},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');"
+  );
 
-  injectScript('f10-x-pixel', 'https://static.ads-twitter.com/uwt.js');
-  trackingWindow.twq('config', pixelId);
+  trackingWindow.twq?.('config', pixelId);
 };
 
 const initializeTracking = () => {
@@ -138,6 +147,8 @@ export const scheduleTracking = (page: LandingPage) => {
   }
 
   const trackingWindow = window as TrackingWindow;
+  let hasRun = false;
+
   const run = () => {
     initializeTracking();
     trackConversionEvent('landing_view', page);
@@ -150,6 +161,11 @@ export const scheduleTracking = (page: LandingPage) => {
   };
 
   const runOnce = () => {
+    if (hasRun) {
+      return;
+    }
+
+    hasRun = true;
     clearListeners();
     run();
   };
