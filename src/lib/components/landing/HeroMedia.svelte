@@ -17,6 +17,8 @@
   <h1 class="sr-only">{page.hero.accessibleTitle}</h1>
 
   <div class="hero-frame">
+    <img class="hero-logo" src="/media/logo-f10.svg" alt="F10" width="106" height="60" loading="eager" decoding="async" />
+
     <img
       class="hero-image"
       src={page.hero.image}
