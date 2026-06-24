@@ -131,7 +131,7 @@
     />
   </section>
 
-  <section class="acquisition-section acquisition-section--closing">
+  <section class="acquisition-section acquisition-section--closing" id="lead-form">
     <div class="acquisition-copy">
       <p class="acquisition-kicker">Conversão</p>
       <h2>Transforme interesse em processo comercial.</h2>
@@ -173,3 +173,132 @@
     </p>
   </section>
 </div>
+
+<style>
+  .acquisition-page {
+    display: grid;
+    gap: 14px;
+    padding: 18px 16px 72px;
+    background: #f6f7f9;
+    color: #111827;
+  }
+
+  .acquisition-section {
+    display: grid;
+    gap: 24px;
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: 28px;
+    border: 1px solid #e6e8ec;
+    border-radius: 30px;
+    background: #ffffff;
+  }
+
+  .acquisition-section--intro {
+    background: #f9fafb;
+  }
+
+  .acquisition-copy {
+    display: grid;
+    gap: 14px;
+    align-content: center;
+  }
+
+  .acquisition-kicker {
+    margin: 0;
+    color: #ea6d0b;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .acquisition-copy h2 {
+    max-width: 680px;
+    margin: 0;
+    color: #111827;
+    font-size: clamp(2rem, 7vw, 4.2rem);
+    font-weight: 560;
+    line-height: 0.98;
+    letter-spacing: -0.065em;
+  }
+
+  .acquisition-copy p {
+    max-width: 620px;
+    margin: 0;
+    color: #5b6472;
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .acquisition-list {
+    display: grid;
+    gap: 10px;
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .acquisition-list li {
+    position: relative;
+    padding-left: 24px;
+    color: #384152;
+    line-height: 1.45;
+  }
+
+  .acquisition-list li::before {
+    position: absolute;
+    left: 0;
+    top: 0.58em;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #ea6d0b;
+    content: "";
+  }
+
+  .acquisition-form {
+    margin-top: 0;
+  }
+
+  .acquisition-form input,
+  .acquisition-form select {
+    background: #ffffff;
+    border-color: #d0d5dd;
+  }
+
+  .acquisition-form button {
+    background: #111827;
+  }
+
+  .acquisition-link-row {
+    margin: 0;
+  }
+
+  @media (min-width: 860px) {
+    .acquisition-page {
+      gap: 18px;
+      padding: 24px 32px 96px;
+    }
+
+    .acquisition-section {
+      padding: 42px;
+    }
+
+    .acquisition-section--intro,
+    .acquisition-section--split,
+    .acquisition-section--closing {
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1fr);
+      align-items: center;
+    }
+
+    .acquisition-section--reverse > :first-child {
+      order: 2;
+    }
+
+    .acquisition-section--media-first {
+      grid-template-columns: minmax(0, 0.78fr) minmax(380px, 1.1fr);
+      align-items: center;
+    }
+  }
+</style>
