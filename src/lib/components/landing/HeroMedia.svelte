@@ -70,3 +70,112 @@
 {/if}
 
 <VideoDialog page={page} isOpen={isVideoOpen} onClose={() => (isVideoOpen = false)} />
+
+<style>
+  .acquisition-hero {
+    min-height: 100svh;
+    padding: max(18px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
+    background: #ffffff;
+    color: #111827;
+  }
+
+  .acquisition-hero__header {
+    width: min(100%, 1120px);
+    margin: 0 auto 34px;
+  }
+
+  .acquisition-hero__header img {
+    display: block;
+    width: 74px;
+    height: auto;
+  }
+
+  .acquisition-hero__grid {
+    display: grid;
+    gap: 28px;
+    align-items: center;
+    width: min(100%, 1120px);
+    margin: 0 auto;
+  }
+
+  .acquisition-hero__copy {
+    display: grid;
+    gap: 18px;
+  }
+
+  .acquisition-kicker {
+    margin: 0;
+    color: #ea6d0b;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .acquisition-hero h1 {
+    max-width: 760px;
+    margin: 0;
+    color: #111827;
+    font-size: clamp(2.55rem, 10vw, 5.6rem);
+    font-weight: 560;
+    line-height: 0.94;
+    letter-spacing: -0.075em;
+  }
+
+  .acquisition-hero p {
+    max-width: 620px;
+    margin: 0;
+    color: #5b6472;
+    font-size: clamp(1.04rem, 3vw, 1.25rem);
+    line-height: 1.5;
+  }
+
+  .acquisition-hero__actions {
+    display: grid;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .acquisition-primary-button,
+  .acquisition-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 0 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .acquisition-primary-button {
+    border: 0;
+    background: #111827;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .acquisition-secondary-link {
+    border: 1px solid #d0d5dd;
+    background: #ffffff;
+    color: #111827;
+  }
+
+  @media (min-width: 860px) {
+    .acquisition-hero {
+      display: grid;
+      align-content: center;
+      padding: 32px;
+    }
+
+    .acquisition-hero__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+      gap: 56px;
+    }
+
+    .acquisition-hero__actions {
+      grid-template-columns: max-content max-content;
+      align-items: center;
+    }
+  }
+</style>
