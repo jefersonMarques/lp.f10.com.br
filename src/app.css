@@ -86,6 +86,89 @@ a {
   background: #f7f4ee;
 }
 
+.acquisition-hero-frame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 32px;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(0, 10, 87, 0.05) 0%, rgba(0, 10, 87, 0.12) 42%, rgba(0, 10, 87, 0.66) 100%),
+    radial-gradient(circle at 82% 16%, rgba(234, 109, 11, 0.34), transparent 34%);
+}
+
+.hero-copy-card {
+  position: absolute;
+  right: 18px;
+  bottom: 102px;
+  left: 18px;
+  z-index: 2;
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111113;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+.hero-copy-card span {
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-copy-card strong {
+  max-width: 320px;
+  font-size: clamp(1.8rem, 8vw, 2.85rem);
+  font-weight: 560;
+  line-height: 0.96;
+  letter-spacing: -0.07em;
+}
+
+.hero-copy-card small {
+  color: #5c5a60;
+  font-size: 0.9rem;
+}
+
+.hero-mini-flow {
+  position: absolute;
+  top: 88px;
+  right: 16px;
+  z-index: 2;
+  display: grid;
+  gap: 8px;
+}
+
+.hero-mini-flow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000a57;
+  font-size: 0.78rem;
+  font-weight: 650;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.hero-mini-flow svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .video-button {
   position: absolute;
   left: 50%;
@@ -216,6 +299,12 @@ a {
   padding: 34px 16px 68px;
 }
 
+.acquisition-sections {
+  background:
+    radial-gradient(circle at top left, rgba(234, 109, 11, 0.12), transparent 32%),
+    linear-gradient(180deg, #f6f1ea, #f8f7f4 42%, #f1eee8);
+}
+
 .section-shell {
   width: min(100%, 1040px);
   margin: 0 auto 22px;
@@ -223,6 +312,41 @@ a {
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: 0 16px 54px rgba(40, 36, 30, 0.07);
+}
+
+.acquisition-showcase {
+  display: grid;
+  gap: 26px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #ffffff 0%, #fff7ef 58%, rgba(234, 109, 11, 0.16) 100%);
+  border: 1px solid rgba(234, 109, 11, 0.16);
+}
+
+.acquisition-flow {
+  display: grid;
+  gap: 12px;
+}
+
+.acquisition-step {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 10, 87, 0.08);
+  box-shadow: 0 18px 44px rgba(40, 36, 30, 0.07);
+}
+
+.acquisition-step strong {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.acquisition-step p {
+  margin: 0;
+  color: #65636a;
 }
 
 .section-kicker {
@@ -262,6 +386,24 @@ a {
   border-radius: 22px;
   background: #f8f7f4;
   border: 1px solid rgba(30, 30, 30, 0.06);
+}
+
+.acquisition-sections .card,
+.acquisition-sections .proof,
+.acquisition-sections .process-item,
+.acquisition-sections .objection {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(0, 10, 87, 0.08);
+  box-shadow: 0 18px 44px rgba(40, 36, 30, 0.055);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.acquisition-sections .card:hover,
+.acquisition-sections .proof:hover,
+.acquisition-sections .process-item:hover,
+.acquisition-sections .objection:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 54px rgba(40, 36, 30, 0.09);
 }
 
 .card strong {
@@ -305,6 +447,28 @@ a {
   margin-bottom: 8px;
   font-weight: 620;
   letter-spacing: -0.02em;
+}
+
+.icon-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, white);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.icon-badge svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .process-number {
@@ -411,9 +575,30 @@ a {
     min-height: min(86svh, 900px);
   }
 
+  .hero-copy-card {
+    right: 24px;
+    bottom: 104px;
+    left: 24px;
+    padding: 22px;
+  }
+
+  .hero-mini-flow {
+    top: 104px;
+    right: 22px;
+  }
+
   .video-button {
     width: auto;
     padding: 0 24px;
+  }
+
+  .acquisition-showcase {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+  }
+
+  .acquisition-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .card-grid,
