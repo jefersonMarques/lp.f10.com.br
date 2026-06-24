@@ -129,6 +129,57 @@ const financeiroB: LandingPageInput = {
   }
 };
 
+const captacaoA: LandingPageInput = {
+  productName: 'Captação de Alunos F10',
+  testName: 'captacao-funcionalidades-diretas',
+  variant: 'a',
+  theme: {
+    accent: '#EA6D0B',
+    background: '#f6f1ea'
+  },
+  meta: {
+    title: 'Captação de Alunos F10 | Leads, WhatsApp, CRM e matrículas',
+    description: 'Landing page de campanha para captação de alunos com F10.'
+  },
+  hero: {
+    image: '/media/hero-vendas-a.webp',
+    alt: 'Arte mobile first da Captação de Alunos F10 com foco em leads, WhatsApp, CRM e matrículas.',
+    accessibleTitle: 'Captação de alunos com leads, WhatsApp, CRM, funil e matrículas no mesmo processo.',
+    videoUrl: ''
+  },
+  conversion: {
+    primaryLabel: 'Ver vídeo da captação',
+    primaryHref: buildWhatsappUrl('Quero ver a Captação de Alunos F10 com leads, WhatsApp, CRM, funil e matrículas.'),
+    formTitle: 'Pare de perder leads de novos alunos',
+    formCopy: 'Veja como organizar atendimento, WhatsApp, tarefas e matrículas em uma demonstração direta.',
+    microcopy: 'Foco em gerar, atender e converter interessados em alunos matriculados.'
+  },
+  sections: {
+    pain: 'Lead sem resposta vira matrícula perdida.',
+    promise: 'A Captação F10 organiza campanhas, WhatsApp, funil, tarefas e matrícula para a equipe vender com processo.',
+    benefits: [
+      { title: 'Leads no CRM', copy: 'Cada interessado entra com origem, responsável, etapa e histórico.' },
+      { title: 'WhatsApp no funil', copy: 'Atendimento conectado ao processo comercial, sem conversa solta no celular.' },
+      { title: 'Matrícula mais rápida', copy: 'O lead avança de contato para proposta e matrícula com menos retrabalho.' }
+    ],
+    proof: [
+      { title: 'Campanha rastreável', copy: 'A escola entende de onde veio o lead e qual ação gerou matrícula.' },
+      { title: 'Próxima ação clara', copy: 'Tarefas, retorno e etapa ajudam o vendedor a não esquecer interessados.' },
+      { title: 'Gestão do comercial', copy: 'A direção acompanha volume, atendimento, gargalo e conversão.' }
+    ],
+    process: [
+      { title: 'Lead chega', copy: 'Origem, dados e interesse ficam registrados no CRM.' },
+      { title: 'Time atende', copy: 'WhatsApp, tarefas e funil orientam a próxima ação.' },
+      { title: 'Matrícula fecha', copy: 'O atendimento vira matrícula sem perder histórico comercial.' }
+    ],
+    objections: [
+      { title: 'Já recebo leads no WhatsApp', copy: 'Receber lead não é processo. A diferença é organizar atendimento e retorno.' },
+      { title: 'Minha equipe é pequena', copy: 'Equipe pequena precisa de cadência para não perder oportunidade.' },
+      { title: 'Quero vender mais agora', copy: 'O foco desta campanha é velocidade de atendimento e conversão em matrícula.' }
+    ]
+  }
+};
+
 const pedagogicoA: LandingPageInput = {
   productName: 'Pedagógico F10',
   testName: 'pedagogico-first-fold-video',
@@ -235,6 +286,7 @@ export const landingPages: Record<string, LandingPage> = {
   financeiro: createPage('financeiro', financeiroA),
   'financeiro-a': createPage('financeiro-a', financeiroA),
   'financeiro-b': createPage('financeiro-b', financeiroB),
+  'captacao-a': createPage('captacao-a', captacaoA),
   pedagogico: createPage('pedagogico', pedagogicoA),
   'pedagogico-a': createPage('pedagogico-a', pedagogicoA),
   vendas: createPage('vendas', vendasA),
