@@ -49,51 +49,51 @@ const createPage = (slug: string, page: LandingPageInput): LandingPage => ({
 
 const financeiroA: LandingPageInput = {
   productName: 'Financeiro F10',
-  testName: 'financeiro-first-fold-video',
+  testName: 'financeiro-funcionalidades-diretas',
   variant: 'a',
   theme: {
-    accent: '#c65c2d',
-    background: '#f4f0ea'
+    accent: '#EA6D0B',
+    background: '#f5f1eb'
   },
   meta: {
-    title: 'Financeiro escolar F10 | Mensalidades, PIX, boletos e fluxo de caixa',
-    description: 'Landing page de campanha para o módulo financeiro escolar F10.'
+    title: 'Financeiro F10 | Cobrança automática por WhatsApp, PIX, cartão e indicadores',
+    description: 'Landing page de campanha para o Financeiro F10.'
   },
   hero: {
     image: '/media/hero-financeiro-a.webp',
-    alt: 'Arte mobile first do Financeiro F10 com chamada para vídeo de demonstração.',
-    accessibleTitle: 'Controle financeiro escolar sem planilhas paralelas.',
+    alt: 'Arte mobile first do Financeiro F10 com foco em cobrança automática, PIX, cartão e indicadores.',
+    accessibleTitle: 'Cobrança automática por WhatsApp, PIX, cartão e indicadores financeiros para escolas.',
     videoUrl: ''
   },
   conversion: {
-    primaryLabel: 'Quero ver o financeiro funcionando',
-    primaryHref: buildWhatsappUrl('Quero ver uma demonstração do Financeiro F10.'),
-    formTitle: 'Receba uma demonstração focada no financeiro da sua escola',
-    formCopy: 'Informe os dados principais para o time comercial entender o cenário e montar uma apresentação objetiva.',
-    microcopy: 'Sem compromisso. Atendimento pelo time comercial F10.'
+    primaryLabel: 'Ver vídeo do financeiro',
+    primaryHref: buildWhatsappUrl('Quero ver o Financeiro F10 com cobrança automática por WhatsApp, PIX, cartão e indicadores.'),
+    formTitle: 'Financeiro escolar sem cobrança perdida',
+    formCopy: 'Veja cobrança automática, recebimentos e indicadores em uma demonstração direta.',
+    microcopy: 'Foco em cobrança, recebimento e visão financeira da escola.'
   },
   sections: {
-    pain: 'A escola recebe por boleto, PIX, cartão, caixa e acordo manual, mas a gestão perde previsibilidade quando tudo fica espalhado.',
-    promise: 'O Financeiro F10 centraliza contratos, cobranças, recebimentos, contas a pagar, fluxo de caixa e indicadores em um único painel.',
+    pain: 'Cobrança manual atrasa recebimento.',
+    promise: 'O Financeiro F10 automatiza lembretes, centraliza pagamentos e mostra os números que importam.',
     benefits: [
-      { title: 'Cobrança ligada ao contrato', copy: 'Parcelas, vencimentos e histórico financeiro partem do contrato do aluno, reduzindo conferência manual.' },
-      { title: 'PIX, boleto e caixa no fluxo', copy: 'A equipe acompanha recebimentos por canais diferentes sem perder a visão da situação do aluno.' },
-      { title: 'Menos inadimplência invisível', copy: 'A rotina mostra o que venceu, o que foi pago e o que precisa de ação rápida.' }
+      { title: 'WhatsApp automático', copy: 'Mensagens de cobrança e lembretes para reduzir esquecimento e retrabalho.' },
+      { title: 'PIX e cartão', copy: 'Recebimentos por meios modernos, com acompanhamento dentro da rotina financeira.' },
+      { title: 'Indicadores claros', copy: 'Inadimplência, previsão de caixa e recebimentos em painéis objetivos.' }
     ],
     proof: [
-      { title: '+500 redes e escolas', copy: 'A F10 apresenta base de redes e escolas atendidas no próprio site institucional.' },
-      { title: 'Ecossistema integrado', copy: 'Financeiro conversa com comercial, pedagógico, portal, app e indicadores.' },
-      { title: 'Operação educacional', copy: 'A solução é pensada para cursos livres, escolas de idiomas, franquias e multiunidades.' }
+      { title: 'Tudo no contrato', copy: 'Parcelas, vencimentos e histórico financeiro partem da matrícula do aluno.' },
+      { title: 'Menos planilha', copy: 'A rotina fica registrada, rastreável e pronta para conferência.' },
+      { title: 'Visão da gestão', copy: 'Direção acompanha situação financeira sem depender de relatório manual.' }
     ],
     process: [
-      { title: 'Diagnóstico rápido', copy: 'Entender volume de alunos, formas de recebimento e gargalos de cobrança.' },
-      { title: 'Demonstração guiada', copy: 'Mostrar mensalidades, cobrança, caixa, contas a pagar e relatórios no mesmo fluxo.' },
-      { title: 'Próximo passo comercial', copy: 'Definir plano, implantação e prioridade de uso para a realidade da escola.' }
+      { title: 'Configura cobrança', copy: 'Define contrato, parcelas, vencimentos e canais de pagamento.' },
+      { title: 'Automatiza contato', copy: 'Aciona lembretes e cobranças pelo fluxo definido pela escola.' },
+      { title: 'Acompanha resultado', copy: 'Analisa inadimplência, recebimentos e caixa com indicadores.' }
     ],
     objections: [
-      { title: 'Já uso planilha', copy: 'A planilha pode continuar como apoio, mas a rotina principal precisa gerar histórico e rastreabilidade.' },
-      { title: 'Minha equipe é pequena', copy: 'O ganho tende a aparecer justamente quando poucas pessoas precisam controlar muitas cobranças.' },
-      { title: 'Tenho vários meios de pagamento', copy: 'A landing conduz para a demonstração do fluxo integrado de boleto, PIX, caixa e cartão.' }
+      { title: 'Já cobro pelo WhatsApp', copy: 'A diferença é tirar a cobrança da memória da equipe e colocar no processo.' },
+      { title: 'Já tenho banco ou gateway', copy: 'A landing deve mostrar a rotina da escola, não apenas o meio de pagamento.' },
+      { title: 'Quero algo simples', copy: 'O foco desta campanha é cobrança, recebimento e indicadores. Sem dispersão.' }
     ]
   }
 };
@@ -102,18 +102,30 @@ const financeiroB: LandingPageInput = {
   ...financeiroA,
   variant: 'b',
   theme: {
-    accent: '#32748e',
-    background: '#eef3f2'
+    accent: '#000A57',
+    background: '#eef1f7'
   },
   hero: {
     ...financeiroA.hero,
     image: '/media/hero-financeiro-b.webp',
-    accessibleTitle: 'Receba melhor com menos retrabalho no financeiro escolar.'
+    accessibleTitle: 'Indicadores financeiros para saber quem pagou, quem atrasou e quanto entra no caixa.'
+  },
+  conversion: {
+    ...financeiroA.conversion,
+    primaryLabel: 'Ver indicadores financeiros',
+    primaryHref: buildWhatsappUrl('Quero ver os indicadores financeiros do F10 para acompanhar cobrança, PIX, cartão e inadimplência.'),
+    formTitle: 'Veja o financeiro da escola em números',
+    formCopy: 'Demonstração rápida dos indicadores de cobrança, recebimento, inadimplência e caixa.'
   },
   sections: {
     ...financeiroA.sections,
-    pain: 'O problema não é apenas cobrar. É saber, todos os dias, quem pagou, quem atrasou e onde o caixa da escola está vazando.',
-    promise: 'O Financeiro F10 organiza a operação para a escola ganhar clareza antes que a inadimplência vire urgência.'
+    pain: 'Sem indicador, a cobrança vira achismo.',
+    promise: 'O Financeiro F10 mostra quem pagou, quem atrasou, quanto entrou e onde agir primeiro.',
+    benefits: [
+      { title: 'Inadimplência visível', copy: 'Identifique atrasos sem esperar fechamento manual.' },
+      { title: 'Recebimentos por canal', copy: 'Acompanhe PIX, cartão, boleto e caixa com mais clareza.' },
+      { title: 'Previsão de caixa', copy: 'Veja entradas previstas e realizadas para decidir com mais segurança.' }
+    ]
   }
 };
 
