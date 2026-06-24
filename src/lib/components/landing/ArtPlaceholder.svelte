@@ -24,9 +24,12 @@
     align-content: center;
     gap: 10px;
     width: 100%;
-    min-height: var(--art-min-height);
+    max-width: 100%;
+    min-width: 0;
+    min-height: min(var(--art-min-height), 72svh);
     aspect-ratio: var(--art-aspect-ratio);
     padding: 28px;
+    overflow: hidden;
     border: 2px dashed #cfd4dc;
     border-radius: 28px;
     background:
@@ -37,16 +40,19 @@
   }
 
   .art-placeholder span {
+    max-width: 100%;
     color: #667085;
     font-size: clamp(1rem, 4vw, 1.45rem);
     font-weight: 700;
     letter-spacing: 0.16em;
+    overflow-wrap: anywhere;
   }
 
   .art-placeholder small {
-    max-width: 320px;
+    max-width: min(100%, 320px);
     color: #98a2b3;
     font-size: 0.86rem;
     line-height: 1.45;
+    overflow-wrap: anywhere;
   }
 </style>
