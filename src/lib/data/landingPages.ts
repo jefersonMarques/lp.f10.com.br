@@ -1,5 +1,13 @@
 export type LandingPageVariant = 'control' | 'a' | 'b';
 
+export type LandingIconName = 'target' | 'message' | 'funnel' | 'task' | 'chart' | 'userPlus' | 'zap' | 'school';
+
+export type LandingSectionItem = {
+  title: string;
+  copy: string;
+  icon?: LandingIconName;
+};
+
 export type LandingPage = {
   slug: string;
   productName: string;
@@ -29,10 +37,10 @@ export type LandingPage = {
   sections: {
     pain: string;
     promise: string;
-    benefits: Array<{ title: string; copy: string }>;
-    proof: Array<{ title: string; copy: string }>;
-    process: Array<{ title: string; copy: string }>;
-    objections: Array<{ title: string; copy: string }>;
+    benefits: LandingSectionItem[];
+    proof: LandingSectionItem[];
+    process: LandingSectionItem[];
+    objections: LandingSectionItem[];
   };
 };
 
@@ -148,7 +156,7 @@ const captacaoA: LandingPageInput = {
     videoUrl: ''
   },
   conversion: {
-    primaryLabel: 'Ver vídeo da captação',
+    primaryLabel: 'Ver captação funcionando',
     primaryHref: buildWhatsappUrl('Quero ver a Captação de Alunos F10 com leads, WhatsApp, CRM, funil e matrículas.'),
     formTitle: 'Pare de perder leads de novos alunos',
     formCopy: 'Veja como organizar atendimento, WhatsApp, tarefas e matrículas em uma demonstração direta.',
@@ -156,26 +164,26 @@ const captacaoA: LandingPageInput = {
   },
   sections: {
     pain: 'Lead sem resposta vira matrícula perdida.',
-    promise: 'A Captação F10 organiza campanhas, WhatsApp, funil, tarefas e matrícula para a equipe vender com processo.',
+    promise: 'A Captação F10 transforma campanha, WhatsApp, funil, tarefas e matrícula em uma operação comercial única.',
     benefits: [
-      { title: 'Leads no CRM', copy: 'Cada interessado entra com origem, responsável, etapa e histórico.' },
-      { title: 'WhatsApp no funil', copy: 'Atendimento conectado ao processo comercial, sem conversa solta no celular.' },
-      { title: 'Matrícula mais rápida', copy: 'O lead avança de contato para proposta e matrícula com menos retrabalho.' }
+      { title: 'Leads no CRM', copy: 'Origem, responsável, etapa e histórico entram no mesmo lugar.', icon: 'target' },
+      { title: 'WhatsApp no funil', copy: 'O atendimento sai do celular isolado e vira processo comercial.', icon: 'message' },
+      { title: 'Matrícula mais rápida', copy: 'Contato, proposta e matrícula avançam sem retrabalho entre setores.', icon: 'userPlus' }
     ],
     proof: [
-      { title: 'Campanha rastreável', copy: 'A escola entende de onde veio o lead e qual ação gerou matrícula.' },
-      { title: 'Próxima ação clara', copy: 'Tarefas, retorno e etapa ajudam o vendedor a não esquecer interessados.' },
-      { title: 'Gestão do comercial', copy: 'A direção acompanha volume, atendimento, gargalo e conversão.' }
+      { title: 'Campanha rastreável', copy: 'A escola sabe qual canal gera lead e qual lead vira matrícula.', icon: 'chart' },
+      { title: 'Próxima ação clara', copy: 'Tarefas e retornos reduzem esquecimento e lead parado.', icon: 'task' },
+      { title: 'Funil visível', copy: 'Gestão acompanha volume, etapa, gargalo e conversão.', icon: 'funnel' }
     ],
     process: [
-      { title: 'Lead chega', copy: 'Origem, dados e interesse ficam registrados no CRM.' },
-      { title: 'Time atende', copy: 'WhatsApp, tarefas e funil orientam a próxima ação.' },
-      { title: 'Matrícula fecha', copy: 'O atendimento vira matrícula sem perder histórico comercial.' }
+      { title: 'Lead chega', copy: 'A origem e o interesse ficam registrados automaticamente no processo.', icon: 'target' },
+      { title: 'Time atende', copy: 'WhatsApp, tarefas e etapa indicam o próximo movimento comercial.', icon: 'zap' },
+      { title: 'Matrícula fecha', copy: 'O histórico acompanha o aluno até o fechamento da matrícula.', icon: 'school' }
     ],
     objections: [
-      { title: 'Já recebo leads no WhatsApp', copy: 'Receber lead não é processo. A diferença é organizar atendimento e retorno.' },
-      { title: 'Minha equipe é pequena', copy: 'Equipe pequena precisa de cadência para não perder oportunidade.' },
-      { title: 'Quero vender mais agora', copy: 'O foco desta campanha é velocidade de atendimento e conversão em matrícula.' }
+      { title: 'Já recebo leads no WhatsApp', copy: 'Receber lead não é processo. A diferença é controlar atendimento e retorno.', icon: 'message' },
+      { title: 'Minha equipe é pequena', copy: 'Equipe pequena precisa de cadência para não perder oportunidade.', icon: 'task' },
+      { title: 'Quero vender mais agora', copy: 'O foco desta campanha é velocidade de atendimento e conversão.', icon: 'zap' }
     ]
   }
 };
