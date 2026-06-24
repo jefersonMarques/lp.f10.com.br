@@ -7,7 +7,8 @@
     | 'chart'
     | 'userPlus'
     | 'zap'
-    | 'school' = 'target';
+    | 'school'
+    | 'importFile' = 'target';
 </script>
 
 {#if name === 'target'}
@@ -56,6 +57,15 @@
 {:else if name === 'zap'}
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z" />
+  </svg>
+{:else if name === 'importFile'}
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M14 3H7.5A2.5 2.5 0 0 0 5 5.5v13A2.5 2.5 0 0 0 7.5 21h9a2.5 2.5 0 0 0 2.5-2.5V8l-5-5Z" />
+    <path d="M14 3v5h5" />
+    <path d="M8 14h7" />
+    <path d="m12 10 3 4-3 4" />
+    <path d="M8 10h2" />
+    <path d="M8 18h2" />
   </svg>
 {:else}
   <svg viewBox="0 0 24 24" aria-hidden="true">
