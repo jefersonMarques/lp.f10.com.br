@@ -1,15 +1,60 @@
 <script lang="ts">
+  import { env } from '$env/dynamic/public';
   import type { LandingPage } from '$lib/data/landingPages';
   import { trackConversionEvent } from '$lib/services/tracking';
 
   export let page: LandingPage;
 
   let formStatus = '';
+  let isSubmitting = false;
 
-  const submitLead = (event: SubmitEvent) => {
+  const getLeadEndpoint = () => env.PUBLIC_LEAD_ENDPOINT?.trim() ?? '';
+
+  const submitLead = async (event: SubmitEvent) => {
     event.preventDefault();
+
+    const form = event.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
+    const leadPayload = {
+      ...Object.fromEntries(formData.entries()),
+      page_slug: page.slug,
+      product_name: page.productName,
+      test_name: page.testName,
+      variant: page.variant
+    };
+
     trackConversionEvent('lead_form_submit', page);
-    formStatus = 'Dados registrados localmente para rastreamento. Configure PUBLIC_LEAD_ENDPOINT para enviar ao CRM.';
+
+    const endpoint = getLeadEndpoint();
+
+    if (!endpoint) {
+      formStatus = 'Lead capturado para rastreamento. Configure PUBLIC_LEAD_ENDPOINT para enviar os dados ao CRM.';
+      return;
+    }
+
+    try {
+      isSubmitting = true;
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(leadPayload),
+        keepalive: true
+      });
+
+      if (!response.ok) {
+        throw new Error('Lead endpoint failed.');
+      }
+
+      form.reset();
+      formStatus = 'Interesse enviado. O time comercial F10 pode seguir com a demonstração.';
+    } catch {
+      formStatus = 'Não foi possível enviar agora. Use o botão de WhatsApp para continuar o atendimento.';
+    } finally {
+      isSubmitting = false;
+    }
   };
 
   const trackPrimaryCta = () => trackConversionEvent('primary_cta_click', page);
@@ -97,7 +142,7 @@
           <option value="Multiunidades">Multiunidades</option>
         </select>
       </label>
-      <button type="submit">Enviar interesse</button>
+      <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Enviando...' : 'Enviar interesse'}</button>
       <p class="form-note">{formStatus || page.conversion.microcopy}</p>
     </form>
 
