@@ -1,6 +1,6 @@
 export type LandingPageVariant = 'control' | 'a' | 'b';
 
-export type LandingIconName = 'target' | 'message' | 'funnel' | 'task' | 'chart' | 'userPlus' | 'zap' | 'school';
+export type LandingIconName = 'target' | 'message' | 'funnel' | 'task' | 'chart' | 'userPlus' | 'zap' | 'school' | 'importFile';
 
 export type LandingSectionItem = {
   title: string;
@@ -157,30 +157,34 @@ const captacaoA: LandingPageInput = {
   },
   conversion: {
     primaryLabel: 'Ver captação funcionando',
-    primaryHref: buildWhatsappUrl('Quero ver a Captação de Alunos F10 com leads, WhatsApp, CRM, funil e matrículas.'),
+    primaryHref: buildWhatsappUrl('Quero ver a Captação de Alunos F10 com leads, WhatsApp, CRM, funil, importação de planilhas e matrículas.'),
     formTitle: 'Pare de perder leads de novos alunos',
-    formCopy: 'Veja como organizar atendimento, WhatsApp, tarefas e matrículas em uma demonstração direta.',
-    microcopy: 'Foco em gerar, atender e converter interessados em alunos matriculados.'
+    formCopy: 'Veja como importar bases, organizar atendimento, WhatsApp, tarefas e matrículas em uma demonstração direta.',
+    microcopy: 'Foco em gerar, importar, atender e converter interessados em alunos matriculados.'
   },
   sections: {
     pain: 'Lead sem resposta vira matrícula perdida.',
-    promise: 'A Captação F10 transforma campanha, WhatsApp, funil, tarefas e matrícula em uma operação comercial única.',
+    promise: 'A Captação F10 transforma campanha, planilhas, outros sistemas, WhatsApp, funil, tarefas e matrícula em uma operação comercial única.',
     benefits: [
       { title: 'Leads no CRM', copy: 'Origem, responsável, etapa e histórico entram no mesmo lugar.', icon: 'target' },
+      { title: 'Importação de bases', copy: 'Traga leads de planilhas e outros sistemas para continuar o atendimento sem começar do zero.', icon: 'importFile' },
       { title: 'WhatsApp no funil', copy: 'O atendimento sai do celular isolado e vira processo comercial.', icon: 'message' },
       { title: 'Matrícula mais rápida', copy: 'Contato, proposta e matrícula avançam sem retrabalho entre setores.', icon: 'userPlus' }
     ],
     proof: [
+      { title: 'Base antiga aproveitada', copy: 'Leads parados em planilhas podem entrar no funil com origem, etapa e responsável.', icon: 'importFile' },
       { title: 'Campanha rastreável', copy: 'A escola sabe qual canal gera lead e qual lead vira matrícula.', icon: 'chart' },
       { title: 'Próxima ação clara', copy: 'Tarefas e retornos reduzem esquecimento e lead parado.', icon: 'task' },
       { title: 'Funil visível', copy: 'Gestão acompanha volume, etapa, gargalo e conversão.', icon: 'funnel' }
     ],
     process: [
+      { title: 'Base entra', copy: 'Importe leads de planilhas ou de outros sistemas para centralizar a operação.', icon: 'importFile' },
       { title: 'Lead chega', copy: 'A origem e o interesse ficam registrados automaticamente no processo.', icon: 'target' },
       { title: 'Time atende', copy: 'WhatsApp, tarefas e etapa indicam o próximo movimento comercial.', icon: 'zap' },
       { title: 'Matrícula fecha', copy: 'O histórico acompanha o aluno até o fechamento da matrícula.', icon: 'school' }
     ],
     objections: [
+      { title: 'Tenho tudo em planilha', copy: 'A planilha vira ponto de partida: importa, organiza e começa a atender com processo.', icon: 'importFile' },
       { title: 'Já recebo leads no WhatsApp', copy: 'Receber lead não é processo. A diferença é controlar atendimento e retorno.', icon: 'message' },
       { title: 'Minha equipe é pequena', copy: 'Equipe pequena precisa de cadência para não perder oportunidade.', icon: 'task' },
       { title: 'Quero vender mais agora', copy: 'O foco desta campanha é velocidade de atendimento e conversão.', icon: 'zap' }
