@@ -73,20 +73,26 @@
 
 <style>
   .acquisition-hero {
+    width: 100%;
+    max-width: 100%;
     min-height: 100svh;
-    padding: max(18px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
+    padding: max(18px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    overflow-x: clip;
     background: #ffffff;
     color: #111827;
   }
 
   .acquisition-hero__header {
     width: min(100%, 1120px);
+    max-width: 100%;
+    min-width: 0;
     margin: 0 auto 34px;
   }
 
   .acquisition-hero__header img {
     display: block;
     width: 74px;
+    max-width: 100%;
     height: auto;
   }
 
@@ -95,12 +101,21 @@
     gap: 28px;
     align-items: center;
     width: min(100%, 1120px);
+    max-width: 100%;
+    min-width: 0;
     margin: 0 auto;
+  }
+
+  .acquisition-hero__grid > * {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .acquisition-hero__copy {
     display: grid;
     gap: 18px;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .acquisition-kicker {
@@ -110,16 +125,18 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-hero h1 {
     max-width: 760px;
     margin: 0;
     color: #111827;
-    font-size: clamp(2.55rem, 10vw, 5.6rem);
+    font-size: clamp(2.35rem, 9.4vw, 5.6rem);
     font-weight: 560;
-    line-height: 0.94;
-    letter-spacing: -0.075em;
+    line-height: 0.96;
+    letter-spacing: -0.065em;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-hero p {
@@ -128,11 +145,14 @@
     color: #5b6472;
     font-size: clamp(1.04rem, 3vw, 1.25rem);
     line-height: 1.5;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-hero__actions {
     display: grid;
     gap: 12px;
+    max-width: 100%;
+    min-width: 0;
     margin-top: 8px;
   }
 
@@ -141,11 +161,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 100%;
     min-height: 54px;
-    padding: 0 22px;
+    padding: 0 18px;
     border-radius: 999px;
     font-weight: 700;
+    text-align: center;
     text-decoration: none;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 
   .acquisition-primary-button {
@@ -169,13 +194,19 @@
     }
 
     .acquisition-hero__grid {
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
       gap: 56px;
     }
 
     .acquisition-hero__actions {
       grid-template-columns: max-content max-content;
       align-items: center;
+    }
+
+    .acquisition-primary-button,
+    .acquisition-secondary-link {
+      width: auto;
+      padding: 0 22px;
     }
   }
 </style>
