@@ -1,12 +1,21 @@
 <script lang="ts">
   import { env } from '$env/dynamic/public';
-  import type { LandingPage } from '$lib/data/landingPages';
+  import type { LandingIconName, LandingPage } from '$lib/data/landingPages';
   import { trackConversionEvent } from '$lib/services/tracking';
+  import IconGlyph from './IconGlyph.svelte';
 
   export let page: LandingPage;
 
   let formStatus = '';
   let isSubmitting = false;
+
+  const isAcquisitionPage = page.slug === 'captacao-a';
+  const acquisitionFlow: Array<{ title: string; copy: string; icon: LandingIconName }> = [
+    { title: 'Anúncio', copy: 'Origem identificada', icon: 'target' },
+    { title: 'WhatsApp', copy: 'Atendimento conectado', icon: 'message' },
+    { title: 'Funil', copy: 'Etapa e próxima ação', icon: 'funnel' },
+    { title: 'Matrícula', copy: 'Histórico preservado', icon: 'school' }
+  ];
 
   const getLeadEndpoint = () => env.PUBLIC_LEAD_ENDPOINT?.trim() ?? '';
 
@@ -60,7 +69,27 @@
   const trackPrimaryCta = () => trackConversionEvent('primary_cta_click', page);
 </script>
 
-<div class="sections" style={`--accent: ${page.theme.accent};`}>
+<div class:acquisition-sections={isAcquisitionPage} class="sections" style={`--accent: ${page.theme.accent};`}>
+  {#if isAcquisitionPage}
+    <section class="section-shell acquisition-showcase">
+      <div>
+        <p class="section-kicker">Captação completa</p>
+        <h2 class="section-title">Do anúncio à matrícula, sem lead perdido no caminho.</h2>
+        <p class="section-copy">Uma operação simples para transformar interesse em atendimento, acompanhamento e fechamento.</p>
+      </div>
+
+      <div class="acquisition-flow" aria-label="Fluxo de captação de alunos">
+        {#each acquisitionFlow as item}
+          <article class="acquisition-step">
+            <span class="icon-badge"><IconGlyph name={item.icon} /></span>
+            <strong>{item.title}</strong>
+            <p>{item.copy}</p>
+          </article>
+        {/each}
+      </div>
+    </section>
+  {/if}
+
   <section class="section-shell">
     <p class="section-kicker">Dor central</p>
     <h2 class="section-title">{page.sections.pain}</h2>
@@ -69,6 +98,7 @@
     <div class="card-grid">
       {#each page.sections.benefits as benefit}
         <article class="card">
+          {#if benefit.icon}<span class="icon-badge"><IconGlyph name={benefit.icon} /></span>{/if}
           <strong>{benefit.title}</strong>
           <p>{benefit.copy}</p>
         </article>
@@ -82,6 +112,7 @@
     <div class="proof-grid">
       {#each page.sections.proof as item}
         <article class="proof">
+          {#if item.icon}<span class="icon-badge"><IconGlyph name={item.icon} /></span>{/if}
           <strong>{item.title}</strong>
           <p>{item.copy}</p>
         </article>
@@ -95,7 +126,11 @@
     <div class="process-grid">
       {#each page.sections.process as item, index}
         <article class="process-item">
-          <span class="process-number">{index + 1}</span>
+          {#if item.icon}
+            <span class="icon-badge"><IconGlyph name={item.icon} /></span>
+          {:else}
+            <span class="process-number">{index + 1}</span>
+          {/if}
           <strong>{item.title}</strong>
           <p>{item.copy}</p>
         </article>
@@ -109,6 +144,7 @@
     <div class="objection-grid">
       {#each page.sections.objections as item}
         <article class="objection">
+          {#if item.icon}<span class="icon-badge"><IconGlyph name={item.icon} /></span>{/if}
           <strong>{item.title}</strong>
           <p>{item.copy}</p>
         </article>
